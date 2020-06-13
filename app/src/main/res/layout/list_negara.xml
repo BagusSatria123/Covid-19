@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <androidx.cardview.widget.CardView
+               app:cardCornerRadius="15dp"
+               app:cardUseCompatPadding="true"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <ImageView
+                   android:layout_width="match_parent"
+                   android:id="@+id/image"
+                   android:src="@drawable/covid"
+                   android:scaleType="centerCrop"
+                   android:layout_height="200dp"/>
+
+           </androidx.cardview.widget.CardView>
+
+       </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/negara"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/negara"/>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
