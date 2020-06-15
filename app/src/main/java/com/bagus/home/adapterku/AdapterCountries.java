@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bagus.home.R;
 import com.bagus.home.modal.Countries;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -27,10 +29,12 @@ public class AdapterCountries extends RecyclerView.Adapter<RecyclerView.ViewHold
     class MyAdapterKu extends RecyclerView.ViewHolder{
 
         TextView negara;
+        ImageView image;
         public MyAdapterKu(@NonNull View itemView) {
             super(itemView);
 
             negara = itemView.findViewById(R.id.negara);
+            image = itemView.findViewById(R.id.image);
         }
     }
 
@@ -46,7 +50,9 @@ public class AdapterCountries extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
 
-        ((MyAdapterKu)holder).negara.setText("");
+
+        ((MyAdapterKu)holder).negara.setText(countries.get(position).getCountry());
+        Picasso.get().load(countries.get(position).getFlag()).into(((MyAdapterKu)holder).image);
     }
 
     @Override
