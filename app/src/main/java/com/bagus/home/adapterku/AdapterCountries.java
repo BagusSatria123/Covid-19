@@ -28,7 +28,7 @@ public class AdapterCountries extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     class MyAdapterKu extends RecyclerView.ViewHolder{
 
-        TextView negara;
+          TextView negara;
         ImageView image;
         public MyAdapterKu(@NonNull View itemView) {
             super(itemView);
