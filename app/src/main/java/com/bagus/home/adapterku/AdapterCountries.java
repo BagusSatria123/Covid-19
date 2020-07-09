@@ -1,10 +1,12 @@
 package com.bagus.home.adapterku;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,6 +23,7 @@ public class AdapterCountries extends RecyclerView.Adapter<RecyclerView.ViewHold
     private ArrayList<Countries> countries;
     private Context context;
 
+
     public AdapterCountries(ArrayList<Countries> countries, Context context) {
         this.countries = countries;
         this.context = context;
@@ -30,11 +33,15 @@ public class AdapterCountries extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         TextView negara;
         ImageView image;
+        RelativeLayout cover;
+
+
         public MyAdapterKu(@NonNull View itemView) {
             super(itemView);
 
             negara = itemView.findViewById(R.id.negara);
             image = itemView.findViewById(R.id.image);
+            cover = itemView.findViewById(R.id.cover);
         }
     }
 
@@ -47,12 +54,20 @@ public class AdapterCountries extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
 
 
 
         ((MyAdapterKu)holder).negara.setText(countries.get(position).getCountry());
         Picasso.get().load(countries.get(position).getFlag()).into(((MyAdapterKu)holder).image);
+        ((MyAdapterKu) holder).cover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Bagus",countries.get(position).getCountry()+ " Posisi : "+position);
+            }
+        });
+
+
     }
 
     @Override
