@@ -39,6 +39,8 @@ public class Dashboard extends Fragment {
     ArrayList<Countries> countries;
     String country,flag;
     TextView click;
+    String code;
+
 
     @Nullable
     @Override
@@ -56,6 +58,8 @@ public class Dashboard extends Fragment {
                 Toast.makeText(getActivity(),"Yeahh Di Klik",Toast.LENGTH_LONG).show();
             }
         });
+
+
 
         queue = Volley.newRequestQueue(getActivity());
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, "https://corona.lmao.ninja/v2/countries", null, new Response.Listener<JSONArray>() {
